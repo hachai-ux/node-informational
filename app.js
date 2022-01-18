@@ -1,9 +1,34 @@
 #!/usr/bin/env node
 
-const http = require('http')
-const fs = require('fs')
-
+const express = require('express')
+const app = express();
 const port = process.env.PORT || 8080
+
+
+
+app.get('/', (req, res) => {
+  res.send('./index.html')
+});
+
+app.get('/about', (req, res) => {
+  res.send('./about.html')
+});
+
+app.get('/contact-me', (req, res) => {
+  res.send('./contact-me.html')
+});
+
+app.get('/', (req, res) => {
+  res.send('./404.html')
+});
+
+
+app.listen(port, () => {
+  console.log(`Example app listening on port ${port}!`)
+});
+
+/*
+const fs = require('fs')
 
 const server = http.createServer((req, res) => {
 
@@ -61,3 +86,5 @@ const server = http.createServer((req, res) => {
 server.listen(port, () => {
   console.log(`Server running at port ${port}`)
 })
+
+*/
