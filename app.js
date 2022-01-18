@@ -7,19 +7,19 @@ const port = process.env.PORT || 8080
 
 
 app.get('/', (req, res) => {
-  res.send('./index.html')
+  res.sendFile(__dirname +'/index.html')
 });
 
 app.get('/about', (req, res) => {
-  res.send('./about.html')
+  res.sendFile(__dirname +'/about.html')
 });
 
 app.get('/contact-me', (req, res) => {
-  res.send('./contact-me.html')
+  res.sendFile(__dirname +'/contact-me.html')
 });
 
-app.get('/', (req, res) => {
-  res.send('./404.html')
+app.get('*', (req, res) => {
+  res.sendFile(__dirname +'/404.html')
 });
 
 
